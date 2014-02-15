@@ -1,0 +1,7 @@
+[submodule "lib/phpunit"]
+	path = lib/phpunit
+	url = git@github.com:sebastianbergmann/phpunit.git
+	branch = 3.7
+[submodule "lib/langrid-php-library"]
+	path = lib/langrid-php-library
+	url = git@github.com:langrid/langrid-php-library.git
