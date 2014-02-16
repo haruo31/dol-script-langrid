@@ -5,3 +5,6 @@
 [submodule "lib/langrid-php-library"]
 	path = lib/langrid-php-library
 	url = git@github.com:langrid/langrid-php-library.git
+[submodule "lib/php-timer"]
+	path = lib/php-timer
+	url = git@github.com:sebastianbergmann/php-timer.git
