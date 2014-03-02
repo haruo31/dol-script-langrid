@@ -1,6 +1,6 @@
 <?php
 
-class DOLLangridJServerJaEnTest extends PHPUnit_Framework_TestCase implements DOLServiceTest {
+class DOLLangridTwoHopJaViTest extends PHPUnit_Framework_TestCase implements DOLServiceTest {
 	var $setting;
 
 	// This test must complete within 3 seconds.
@@ -21,10 +21,14 @@ class DOLLangridJServerJaEnTest extends PHPUnit_Framework_TestCase implements DO
 	public function testTranslation() {
    		$text = 'こんにちは。私は今日は百万遍に来ています。';
 
-		$client = ClientFactory::createTranslationClient($this->setting->url . 'kyoto1.langrid:KyotoUJServer');
+   		$client = ClientFactory::createMultihopTranslationClient($this->setting->url . 'kyoto1.langrid:TwoHopTranslation');
+
+   		$client->addBindings(new BindingNode('FirstTranslationPL', 'KyotoUJServer', 'kyoto1.langrid'));
+   		$client->addBindings(new BindingNode('SecondTranslationPL', 'GoogleTranslate', 'kyoto1.langrid'));
+
 		$this->buildService($client);
-		$result = $client->translate(Language::get('ja'), Language::get('en'), $text);
-		$this->assertEquals('Hello. I have come to one million times today.', $result);
+		$result = $client->multihopTranslate(Language::get('ja'), array(Language::get('en')), Language::get('vi'), $text);
+		$this->assertEquals('Xin chào. Tôi đã đến một triệu lần hiện nay.', $result->target);
 	}
 
     public function testConnection() {
