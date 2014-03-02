@@ -1,4 +1,4 @@
-dads-script-langrid
+dol-script-langrid
 ===================
 
 Dead or alive detection service script for Language grid.
