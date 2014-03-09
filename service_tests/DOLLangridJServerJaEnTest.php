@@ -1,5 +1,7 @@
 <?php
 
+require_once dirname(__FILE__) . '/../helper/autoload.php';
+
 class DOLLangridJServerJaEnTest extends PHPUnit_Framework_TestCase implements DOLServiceTest {
 	var $setting;
 

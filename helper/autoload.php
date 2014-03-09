@@ -2,7 +2,7 @@
 
 // It's too fat to use PHPUnit Autoloader for my usage.
 
-require_once "../lib/langrid-php-library/MultiLanguageStudio.php";
+require_once dirname(__FILE__) . "/../lib/langrid-php-library/MultiLanguageStudio.php";
 
 spl_autoload_register(
 function ($class)
